@@ -9,6 +9,8 @@ for i in range (10):
     led.value(0)
     print ("led off")
     time.sleep(0.2)
+    print ("blink finished")
+print ("done")
 
 
 
