@@ -10,7 +10,7 @@ for i in range (10):
     print ("led off")
     time.sleep(0.2)
     print ("blink finished")
-print ("done")
+
 
 
 
