@@ -1,18 +1,15 @@
 from machine import Pin
-import time
-count = 0
-sum = {}
+from time import sleep
 led = Pin(25, Pin.OUT)
-button = Pin(14, Pin.IN)
-led_state = False
-
+button = Pin(14,Pin.IN,Pin.PULL_DOWN)
 while True:
-    if button.value():
-        time.sleep(0.2)  # Debounce
-        led_state = not led_state
-        led.value(led_state)
-        count = count + 1
-        sum.update({'led_state': led_state, 'count': count})
-        print(sum)
-        while button.value():  # Wait until release
-            time.sleep(0.01)
+    user_input = input("Enter the value :") or button.value() == 1
+    print("before")
+    if (user_input == "1"):
+        led.value(1)
+        print(f"Led state{user_input} ")
+    elif (user_input == "0" ):
+        led.value(0)
+        print(f"Led state{user_input}")
+    else: 
+        print(f"Input not granted ! {user_input}") 
