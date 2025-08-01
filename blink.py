@@ -3,7 +3,7 @@ from time import sleep
 led = Pin(25, Pin.OUT)
 button = Pin(14,Pin.IN,Pin.PULL_DOWN)
 while True:
-    user_input = input("Enter the value :") or button.value() == 1
+    user_input = input("Enter the value :") 
     if (user_input == "1"):
         led.value(1)
         print(f"Led state{user_input} ")
