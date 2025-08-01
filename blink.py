@@ -4,7 +4,6 @@ led = Pin(25, Pin.OUT)
 button = Pin(14,Pin.IN,Pin.PULL_DOWN)
 while True:
     user_input = input("Enter the value :") or button.value() == 1
-    print("before")
     if (user_input == "1"):
         led.value(1)
         print(f"Led state{user_input} ")
@@ -12,4 +11,4 @@ while True:
         led.value(0)
         print(f"Led state{user_input}")
     else: 
-        print(f"Input not granted ! {user_input}") 
+        print(f"Input invalde ! {user_input}") 
