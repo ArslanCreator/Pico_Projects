@@ -1,18 +1,18 @@
-from machine import Pin 
-import time 
+from machine import Pin
+import time
+count = 0
+sum = {}
 led = Pin(25, Pin.OUT)
+button = Pin(14, Pin.IN)
+led_state = False
 
-for i in range (10):
-    led.value(1)
-    print ("led on")
-    time.sleep(0.2)
-    led.value(0)
-    print ("led off")
-    time.sleep(0.2)
-    print ("blink finished")
-print ("done")
-
-
-
-
-
+while True:
+    if button.value():
+        time.sleep(0.2)  # Debounce
+        led_state = not led_state
+        led.value(led_state)
+        count = count + 1
+        sum.update({'led_state': led_state, 'count': count})
+        print(sum)
+        while button.value():  # Wait until release
+            time.sleep(0.01)
